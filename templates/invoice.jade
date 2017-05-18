@@ -24,7 +24,7 @@ html.no-js
     body.layout
         .row.invoice-body
             .columns
-                .row.white-small 
+                .row.white-small
                     .columns.small-10
                         if invoice.company_logo
                             .row
@@ -44,7 +44,7 @@ html.no-js
                             | #{invoice.label_invoice_by}
                       .row
                         .columns
-                          | #{invoice.company_name}
+                          | #{invoice.by}
                 .row.white-small
                   .small-4.columns
                       .row
@@ -52,7 +52,7 @@ html.no-js
                             | #{invoice.label_invoice_to}
                       .row
                           .columns
-                            | #{invoice.client_company_name}
+                            | #{invoice.to}
                       .row.address
                           .columns
                               .row
@@ -96,7 +96,7 @@ html.no-js
                             .row
                               .small-7.columns #{line.description || 'Item description'}
                               .small-1.columns #{line.quantity}
-                              .small-2.columns 
+                              .small-2.columns
                                 if invoice.currency_position_before
                                     | #{invoice.currency_symbol}
                                 | #{line.price}
@@ -127,6 +127,9 @@ html.no-js
                     | #{invoice.total}
                     if !invoice.currency_position_before
                         | #{invoice.currency_symbol}
+                .row
+                  .small-10.columns.upper #{'Paid'}
+                  .small-2.columns.num #{invoice.paid ? invoice.total : 0}%
         .row.footer
             .columns
                 .row
@@ -136,7 +139,7 @@ html.no-js
                                 | #{invoice.label_invoice_by}
                         .row
                             .columns
-                                | #{invoice.company_name}
+                                | #{invoice.by}
                         .row.address
                             .columns
                                 .row
