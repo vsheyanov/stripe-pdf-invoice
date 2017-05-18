@@ -129,7 +129,13 @@ html.no-js
                         | #{invoice.currency_symbol}
                 .row
                   .small-10.columns.upper #{'Paid'}
-                  .small-2.columns.num #{invoice.paid ? invoice.total : 0}%
+                  .small-2.columns.num
+                    if invoice.currency_position_before
+                        | #{invoice.currency_symbol}
+                    | #{invoice.paid ? invoice.total : 0}
+                    if !invoice.currency_position_before
+                        | #{invoice.currency_symbol}
+
         .row.footer
             .columns
                 .row
