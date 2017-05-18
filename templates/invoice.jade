@@ -92,7 +92,7 @@ html.no-js
                           .small-1.columns.component-title #{invoice.label_unit}
                           .small-2.columns.component-title #{invoice.label_price}
                           .small-2.columns.component-title #{invoice.label_amount}
-                          each line in invoice.lines.data
+                          each line in invoice.lines
                             .row
                               .small-7.columns #{line.description || 'Item description'}
                               .small-1.columns #{line.quantity}
