@@ -19,7 +19,7 @@ function StripePdfInvoice() {
 };
 
 StripePdfInvoice.prototype.generate = function(invoice, config, callback) {
-  var invoice = _.extend({}, config, results.invoice);
+  var invoice = _.extend({}, config, invoice);
   invoice.currency_symbol = invoice.currency_symbol || '$';
   invoice.label_invoice = invoice.label_invoice || 'invoice';
   invoice.label_invoice_to = invoice.label_invoice_to || 'invoice to';
