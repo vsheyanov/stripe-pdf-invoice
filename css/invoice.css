@@ -76,3 +76,7 @@ layout {
     padding-top : 15px;
     font-size : 13px;
 }
+
+.pre {
+  white-space: pre;
+}

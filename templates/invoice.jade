@@ -43,7 +43,7 @@ html.no-js
                           .columns.component-title
                             | #{invoice.label_invoice_by}
                       .row
-                        .columns
+                        .columns.pre
                           | #{invoice.by}
                 .row.white-small
                   .small-4.columns
@@ -73,9 +73,6 @@ html.no-js
                                 | #{invoice.total}
                                 if !invoice.currency_position_before
                                     | #{invoice.currency_symbol}
-                      .row
-                          .columns
-                            | #{invoice.label_due_on} #{invoice.due_date_formated}
                 if invoice.invoice_for
                     .row.white-small
                         .columns
@@ -127,14 +124,6 @@ html.no-js
                     | #{invoice.total}
                     if !invoice.currency_position_before
                         | #{invoice.currency_symbol}
-                .row
-                  .small-10.columns.upper #{'Paid'}
-                  .small-2.columns.num
-                    if invoice.currency_position_before
-                        | #{invoice.currency_symbol}
-                    | #{invoice.paid ? invoice.total : 0}
-                    if !invoice.currency_position_before
-                        | #{invoice.currency_symbol}
 
         .row.footer
             .columns
@@ -170,20 +159,6 @@ html.no-js
                         .row
                             .columns.num
                                 | ##{invoice.number}
-                    .small-3.columns
-                        .row
-                            .columns.component-title
-                                | #{invoice.label_invoice_due_date}
-                        .row.white-small
-                            .columns
-                                | #{invoice.due_date_formated}
-                        if invoice.receipt_number
-                            .row
-                                .columns.component-title
-                                    | #{invoice.label_reference_number}
-                            .row
-                                .columns.num
-                                    | #{invoice.receipt_number}
                     .small-3.columns
                         if invoice.company_siret
                             .row
